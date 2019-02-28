@@ -1,0 +1,68 @@
+<div class="section">
+  <div class="container">
+    <h1 class="title">Burgers!</h1>
+    <h2 class="subtitle">Name a burger, then eat it!</h2>
+    <figure class="image" id="burger-image">
+      <img src="/assets/images/burger.png" />
+    </figure>
+  </div>
+
+  <div class="container">
+    <div class="field">
+      <label class="label">Burger Name</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Your Burger's Name"
+          id="name"
+          name="name"
+        />
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary" id="submit-btn">Add Burger</button>
+      </div>
+    </div>
+    <div class="level">
+      <div class="level-left">
+        <h2 class="subtitle">Uneaten Burgers</h2>
+      </div>
+      <div class="level-right">
+        <h2 class="subtitle">Eaten Burgers</h2>
+      </div>
+    </div>
+    <div class="level">
+      <div class="level-left" id="uneaten-box">
+        <ul>
+          {{#each burgers}}
+          {{#unless devoured}}
+          <li>
+            Burger Name: {{ this.burger_name
+            }}<button
+              class="button"
+              id="devour-btn"
+              data-id="{{this.id}}"
+            >
+              Devour Burger
+            </button>
+          </li>
+
+          {{/unless}}
+          {{/each}}
+        </ul>
+      </div>
+      <div class="level-right" id="eaten-box">
+        <ul>
+          {{#each burgers}}
+          {{#if devoured}}
+          <li>Burger Name: {{ this.burger_name }}</li>
+
+          {{/if}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
